@@ -35,6 +35,10 @@
     </script>
 </head>
 <body>
+
+	<div class="login_general">
+		<p class="titulo_mc">My Contacts</p>
+	<div class="login_marco">
 	<div class="login_logo">
 		<img  class=" login_image" src="img/logo.png">
 	</div>
@@ -71,16 +75,18 @@
 	<form name="login" action="php/login.proc.php" method="POST" onsubmit="return validar();" >
 		<div class="login">
 			<p class="nickname">
-				Nombre de usuario:<br/>
+				Nombre de usuario:
 				<input type="text" class="name" name="name" id="name" maxlength="15" />
 			</p>
 			<p class="password">
-				Contraseña: <br/>
+				Contraseña:
 				<input type="password" class="pass" name="pass" id="pass" />
 			</p>
+			<p class="register_login">Aún no estas registrado? Registrate haciendo <a href="php/alta.php">click aquí<a></p>
 			<input class="send" id="send" type="submit" value="Acceder" />
 		</div>
 	</form>
-
+</div>
+</div>
 </body>
 </html>
