@@ -2,10 +2,10 @@
 <meta charset="utf-8">
 <html>
 <head>
-	<title>MAMProyect</title>
+	<title>My Contacts | Login</title>
 	<link rel="stylesheet" type="text/css" href="./css/style.css">
 	    <script>
-    //Funcion para validar  el formulario 
+    //Funcion para validar  el formulario
     function validar()
     {
       var error ="";
@@ -37,11 +37,11 @@
 	<div class="login_logo">
 		<img  class=" login_image" src="img/logo.jpg">
 	</div>
-		
+
 	<?php
 	extract($_GET);
 		//En caso que exista la variable nolog, significa que ha habido un error de login o el usuario ha intentado entrar en una página directamente
-		if (isset($nolog)) 
+		if (isset($nolog))
 		{
 			switch ($nolog) {
 				case '1':
