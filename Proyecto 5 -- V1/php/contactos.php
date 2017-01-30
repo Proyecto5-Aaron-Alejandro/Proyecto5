@@ -16,7 +16,7 @@
             echo "error de depuración: " . mysqli_connect_error() . PHP_EOL;
             exit;
         }
-        
+
 
         //session_start();
         //$mysqli = new mysqli("localhost", "root", "", "bd_proyecto2");
@@ -31,7 +31,7 @@
             //$sql = "SELECT * FROM `tbl_contactos` WHERE `usuc_id` = 1 ";
 
 
-    
+
         extract($_REQUEST);
 
         $contacto = mysqli_query($conexion, $sql);
@@ -86,20 +86,20 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.html">My Contacts</a>
+                <a class="navbar-brand" href="#">My Contacts</a>
             </div>
             <!-- Top Menu Items -->
             <ul class="nav navbar-right top-nav">
 
                 <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> 
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i>
                     <?php
-                    while ($fila = mysqli_fetch_row($result)) 
+                    while ($fila = mysqli_fetch_row($result))
                     {
                     $usu_nombre   =   $fila[1];
                     }
                     ?>
-            
+
                     <b class="caret"></b></a>
                     <ul class="dropdown-menu">
                         <li>
@@ -112,10 +112,10 @@
             <div class="collapse navbar-collapse navbar-ex1-collapse">
                 <ul class="nav navbar-nav side-nav">
                     <li class="active">
-                        <a href="index.html"><i class="fa fa-fw fa-dashboard"></i> Contactos</a>
+                        <a href="#"><i class="fa fa-fw fa-dashboard"></i> Contactos</a>
                     </li>
                     <li>
-                        <a href="charts.html"><i class="fa fa-fw fa-bar-chart-o"></i> FAQ</a>
+                        <a href="insertar.php"><i class="fa fa-fw fa-bar-chart-o"></i> FAQ</a>
                     </li>
 
                 </ul>
@@ -123,15 +123,15 @@
             <!-- /.navbar-collapse -->
         </nav>
 
-        <div id="page-wrapper">
+        <div id="page-wrapper" class="page-wrapper">
             <div class="container-fluid">
                 <div class="row">
                 <?php
 
 
-        
+
         if(mysqli_num_rows($contacto)>0){
-            
+
                                 while($contactos    =   mysqli_fetch_array($contacto)){
                                     echo "<div class='content_rec'>";
                                         //echo $fila[0]
@@ -152,20 +152,20 @@
                                         echo "</tr>";
                                         echo "<tr>";
                                             echo "<td colspan='2'> <a href='mapa.php?con_id=".$contactos['con_id']."' '> DIRECCIÓN </a></td>";
-                                        echo "</tr>"; 
+                                        echo "</tr>";
                                         echo "<tr>";
                                             echo "<td colspan='2'> <a href='modificarusuario.php?usu_id=".$contactos['con_id']."' '> MODIFICAR </a></td>";
-                                        echo "</tr>"; 
-                                            
+                                        echo "</tr>";
+
                                         echo "<tr>";
                                             echo "<td colspan='2'> <a href='bajausuario.proc.php?usu_id=".$contactos['con_id']."' onclick='return destroy();'> DAR DE BAJA </a></td>";
-                                        echo "</tr>"; 
-                                            
-                                                        
+                                        echo "</tr>";
+
+
                                     echo "</table>";
                                     echo "</div>";
                                     echo "</br>";
-     
+
 
                                 }
 

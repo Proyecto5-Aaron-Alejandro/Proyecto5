@@ -46,7 +46,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.html">My Contacts</a>
+                <a class="navbar-brand" href="#">My Contacts</a>
             </div>
             <!-- Top Menu Items -->
             <ul class="nav navbar-right top-nav">
@@ -75,7 +75,7 @@
             <!-- /.navbar-collapse -->
         </nav>
 
-        <div id="page-wrapper">
+        <div id="page-wrapper" class="page-wrapper">
             <div class="container-fluid">
                 <div class="row ">
                     <h2 style="text-align:center;">Añadir Contacto</h2>
