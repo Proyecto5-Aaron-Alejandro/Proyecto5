@@ -30,7 +30,6 @@
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
   	<link rel="stylesheet" type="text/css" href="../css/costum.css">
-
 </head>
 
 <body>
@@ -64,11 +63,11 @@
             <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
             <div class="collapse navbar-collapse navbar-ex1-collapse">
                 <ul class="nav navbar-nav side-nav">
-                    <li class="active">
-                        <a href="#"><i class="fa fa-fw fa-users"></i> Contactos</a>
+                    <li >
+                        <a href="contactos.php"><i class="fa fa-fw fa-users"></i> Contactos</a>
                     </li>
-                    <li>
-                        <a href="../php/insertar.php"><i class="fa fa-fw fa-user"></i> Añadir Contacto</a>
+                    <li class="active">
+                        <a href="#"><i class="fa fa-fw fa-user"></i> Añadir Contacto</a>
                     </li>
 
                 </ul>
@@ -78,8 +77,59 @@
 
         <div id="page-wrapper">
             <div class="container-fluid">
-                <div class="row">
+                <div class="row ">
+                    <h2 style="text-align:center;">Añadir Contacto</h2>
+                  <form name="formulario_ins" class="formulario_ins" method="post" action="send_form_email.php">
 
+                  <table width="450px">
+                  <tr>
+                   <td valign="top">
+                    <label for="first_name">Nombre *</label>
+                   </td>
+                   <td valign="top">
+                    <input  type="text" name="first_name" maxlength="50" size="30">
+                   </td>
+                  </tr>
+                  <tr>
+                   <td valign="top">
+                    <label for="last_name">Apellido *</label>
+                   </td>
+                   <td valign="top">
+                    <input  type="text" name="last_name" maxlength="50" size="30">
+                   </td>
+                  </tr>
+                  <tr>
+                   <td valign="top">
+                    <label for="email">E-mail *</label>
+                   </td>
+                   <td valign="top">
+                    <input  type="text" name="email" maxlength="80" size="30">
+                   </td>
+                  </tr>
+                  <tr>
+                   <td valign="top">
+                    <label for="telephone">Telefono</label>
+                   </td>
+                   <td valign="top">
+                    <input  type="text" name="telephone" maxlength="30" size="30">
+                   </td>
+                  </tr>
+                  <tr>
+                   <td valign="top">
+                    <label for="message">Dirección*</label>
+
+                   </td>
+                   <td valign="top">
+                        <input  type="text" name="direccion" maxlength="30" size="30">
+                   </td>
+                  </tr>
+                  <tr>
+                   <td colspan="2" style="text-align:center">
+                    <input type="submit" value="Enviar">   <a href="http://www.tufelicidadvacacional.com.ve/email_form.php"></a>
+                   </td>
+                  </tr>
+                  </table>
+                  </form>
                 </div>
             </div>
             <!-- /.container-fluid -->
