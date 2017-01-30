@@ -1,4 +1,43 @@
 <!DOCTYPE html>
+<?php
+        session_start();
+        if(!isset($_SESSION["usu_id"])) {
+            header("location:../index.php?nolog=2");
+        }
+        //realizamos la conexión
+        $conexion = mysqli_connect('localhost', 'root', '', 'bd_proyecto5');
+
+        //le decimos a la conexión que los datos los devuelva diréctamente en utf8, así no hay que usar htmlentities
+        $acentos = mysqli_query($conexion, "SET NAMES 'utf8'");
+
+        if (!$conexion) {
+            echo "Error: No se pudo conectar a MySQL." . PHP_EOL;
+            echo "error de depuración: " . mysqli_connect_error() . PHP_EOL;
+            echo "error de depuración: " . mysqli_connect_error() . PHP_EOL;
+            exit;
+        }
+        
+
+        //session_start();
+        //$mysqli = new mysqli("localhost", "root", "", "bd_proyecto2");
+        //Cogemos el nombre de usuario y la imagen de forma dinámica en la BD
+        $con =  "SELECT * FROM `tbl_usuario` WHERE `usu_id` = '". $_SESSION["usu_id"] ."'";
+        $result =   mysqli_query($conexion,$con);
+        //echo $con;
+        //Lanzamos la consulta a la BD
+
+
+        $sql = "SELECT * FROM `tbl_contactos` WHERE `usuc_id` = '". $_SESSION["usu_id"] ."'";
+            //$sql = "SELECT * FROM `tbl_contactos` WHERE `usuc_id` = 1 ";
+
+
+    
+        extract($_REQUEST);
+
+        $contacto = mysqli_query($conexion, $sql);
+
+
+?>
 <html lang="en">
 
 <head>
@@ -53,7 +92,15 @@
             <ul class="nav navbar-right top-nav">
 
                 <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> John Smith <b class="caret"></b></a>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> 
+                    <?php
+                    while ($fila = mysqli_fetch_row($result)) 
+                    {
+                    $usu_nombre   =   $fila[1];
+                    }
+                    ?>
+            
+                    <b class="caret"></b></a>
                     <ul class="dropdown-menu">
                         <li>
                             <a href="#"><i class="fa fa-fw fa-power-off"></i> Log Out</a>
@@ -65,10 +112,10 @@
             <div class="collapse navbar-collapse navbar-ex1-collapse">
                 <ul class="nav navbar-nav side-nav">
                     <li class="active">
-                        <a href="#"><i class="fa fa-fw fa-users"></i> Contactos</a>
+                        <a href="index.html"><i class="fa fa-fw fa-dashboard"></i> Contactos</a>
                     </li>
                     <li>
-                        <a href="../php/insertar.php"><i class="fa fa-fw fa-user"></i> Añadir Contacto</a>
+                        <a href="charts.html"><i class="fa fa-fw fa-bar-chart-o"></i> FAQ</a>
                     </li>
 
                 </ul>
@@ -79,6 +126,54 @@
         <div id="page-wrapper">
             <div class="container-fluid">
                 <div class="row">
+                <?php
+
+
+        
+        if(mysqli_num_rows($contacto)>0){
+            
+                                while($contactos    =   mysqli_fetch_array($contacto)){
+                                    echo "<div class='content_rec'>";
+                                        //echo $fila[0]
+                                    echo "<table border>";
+                                            echo "<td>Nombre:".$contactos['con_nombre']."</td>";
+                                        echo "</tr>";
+                                        echo "<tr>";
+                                            echo "<td>Apellido: " .$contactos['con_apellido']. "</td>";
+                                        echo "</tr>";
+                                        echo "<tr>";
+                                            echo "<td>Correo: " .$contactos['con_correo']. "</td>";
+                                        echo "</tr>";
+                                        echo "<tr>";
+                                            echo "<td> Móbil:" .$contactos['con_tlf1']. "</td>";
+                                        echo "</tr>";
+                                        echo "<tr>";
+                                            echo "<td> Teléfono:" .$contactos['con_tlf2']. "</td>";
+                                        echo "</tr>";
+                                        echo "<tr>";
+                                            echo "<td colspan='2'> <a href='mapa.php?con_id=".$contactos['con_id']."' '> DIRECCIÓN </a></td>";
+                                        echo "</tr>"; 
+                                        echo "<tr>";
+                                            echo "<td colspan='2'> <a href='modificarusuario.php?usu_id=".$contactos['con_id']."' '> MODIFICAR </a></td>";
+                                        echo "</tr>"; 
+                                            
+                                        echo "<tr>";
+                                            echo "<td colspan='2'> <a href='bajausuario.proc.php?usu_id=".$contactos['con_id']."' onclick='return destroy();'> DAR DE BAJA </a></td>";
+                                        echo "</tr>"; 
+                                            
+                                                        
+                                    echo "</table>";
+                                    echo "</div>";
+                                    echo "</br>";
+     
+
+                                }
+
+            } else {
+                echo "No hay recursos disponibles";
+            }
+
+        ?>
 
                 </div>
             </div>

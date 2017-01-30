@@ -22,9 +22,9 @@ if ($mysqli->connect_errno) {
 			$_SESSION['usu_id']	=	$fila[0];
 			//Redireccionamos
 			if ($_SESSION['usu_id']!=5) {
-			header("location:recursos.php");	
+			header("location:contactos.php");	
 			}else{
-			header("location:administrador_recursos.php");
+			header("location:contactos.php");
 			}
 		}
 	}
