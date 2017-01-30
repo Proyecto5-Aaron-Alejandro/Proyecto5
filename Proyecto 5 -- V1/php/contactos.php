@@ -29,6 +29,7 @@
 
         $sql = "SELECT * FROM `tbl_contactos` WHERE `usuc_id` = '". $_SESSION["usu_id"] ."'";
             //$sql = "SELECT * FROM `tbl_contactos` WHERE `usuc_id` = 1 ";
+            // AND `con_estado`='alta'
 
 
 
@@ -125,15 +126,15 @@
 
         <div id="page-wrapper" class="page-wrapper">
             <div class="container-fluid">
-                <div class="row">
+                <div class="row tabla">
                 <?php
 
-
+                $vuelta= 0;
 
         if(mysqli_num_rows($contacto)>0){
 
                                 while($contactos    =   mysqli_fetch_array($contacto)){
-                                    echo "<div class='content_rec'>";
+                                    echo "<div class='content_rec col-sm-3'>";
                                         //echo $fila[0]
                                     echo "<table border>";
                                             echo "<td>Nombre:".$contactos['con_nombre']."</td>";
@@ -164,7 +165,7 @@
 
                                     echo "</table>";
                                     echo "</div>";
-                                    echo "</br>";
+
 
 
                                 }
