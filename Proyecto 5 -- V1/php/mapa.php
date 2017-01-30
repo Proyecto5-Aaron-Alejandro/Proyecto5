@@ -19,12 +19,13 @@
         
 
 
-        $sql = "SELECT `con_latitud`,`con_longitud`  FROM `tbl_contactos` WHERE `usuc_id` = '". $_SESSION["usu_id"] ."'";
+
             //$sql = "SELECT * FROM `tbl_contactos` WHERE `usuc_id` = 1 ";
 
 
     
         extract($_REQUEST);
+         $sql = "SELECT `con_latitud`,`con_longitud`  FROM `tbl_contactos` WHERE `con_id`=$con_id";
 
         $mapa = mysqli_query($conexion, $sql);
     if(mysqli_num_rows($mapa)>0){
@@ -33,25 +34,15 @@
               $longitud=$mapas['con_longitud'];
             }
           }
-
-
-       
-
-
-        
-
-        
-
-
-
-
+    //echo "$latitud";
+    //echo "$longitud";
 
 ?>
 <html>
   <head>
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
     <meta charset="utf-8">
-    <title>Direccción de contacto</title>
+    <title>Dirección de contacto</title>
     <style>
       html, body {
         height: 100%;
@@ -67,10 +58,12 @@
     <div id="map"></div>
     <script>
 
+
 function initMap() {
   var la= parseFloat('<?php echo $latitud; ?>');
   var lo= parseFloat('<?php echo $longitud; ?>');
   var myLatLng = {lat: la , lng: lo};
+
   
 
   var map = new google.maps.Map(document.getElementById('map'), {
@@ -83,6 +76,35 @@ function initMap() {
     map: map,
     title: 'Posición del Contacto'
   });
+  var infoWindow = new google.maps.InfoWindow({map: map});
+
+  // Try HTML5 geolocation.
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(function(position) {
+      var pos = {
+        lat: position.coords.latitude,
+        lng: position.coords.longitude
+      };
+
+      infoWindow.setPosition(pos);
+      infoWindow.setContent('Tu localización');
+      map.setCenter(pos);
+    }, function() {
+      handleLocationError(true, infoWindow, map.getCenter());
+    });
+  } else {
+    // Browser doesn't support Geolocation
+    handleLocationError(false, infoWindow, map.getCenter());
+  }
+}
+
+function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+  infoWindow.setPosition(pos);
+  infoWindow.setContent(browserHasGeolocation ?
+                        'Error: The Geolocation service failed.' :
+                        'Error: Your browser doesn\'t support geolocation.');
+
+
 }
 
     </script>
