@@ -1,4 +1,40 @@
 <!DOCTYPE html>
+<?php
+        session_start();
+        if(!isset($_SESSION["usu_id"])) {
+            header("location:../index.php?nolog=2");
+        }
+        //realizamos la conexión
+        $conexion = mysqli_connect('localhost', 'root', '', 'bd_proyecto5');
+
+        //le decimos a la conexión que los datos los devuelva diréctamente en utf8, así no hay que usar htmlentities
+        $acentos = mysqli_query($conexion, "SET NAMES 'utf8'");
+
+        if (!$conexion) {
+            echo "Error: No se pudo conectar a MySQL." . PHP_EOL;
+            echo "error de depuración: " . mysqli_connect_error() . PHP_EOL;
+            echo "error de depuración: " . mysqli_connect_error() . PHP_EOL;
+            exit;
+        }
+
+
+        //session_start();
+        //$mysqli = new mysqli("localhost", "root", "", "bd_proyecto2");
+        //Cogemos el nombre de usuario y la imagen de forma dinámica en la BD
+        $con =  "SELECT * FROM `tbl_usuario` WHERE `usu_id` = '". $_SESSION["usu_id"] ."'";
+        //echo $con;
+        //Lanzamos la consulta a la BD
+        $result =   mysqli_query($conexion,$con);
+        while ($fila = mysqli_fetch_row($result))
+            {
+                $usu_nombre  =   $fila[1];
+            }
+        //echo $con;
+        //Lanzamos la consulta a la BD
+
+
+
+?>
 <html lang="en">
 
 <head>
@@ -52,10 +88,10 @@
             <ul class="nav navbar-right top-nav">
 
                 <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i>  <b class="caret"></b></a>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> <?php echo $usu_nombre; ?> <b class="caret"></b></a>
                     <ul class="dropdown-menu">
                         <li>
-                            <a href="#"><i class="fa fa-fw fa-power-off"></i> Log Out</a>
+                            <a href="logout.proc.php" onclick="return logout();"><i class="fa fa-fw fa-power-off"></i> Log Out</a>
                         </li>
                     </ul>
                 </li>
