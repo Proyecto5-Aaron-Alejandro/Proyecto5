@@ -43,6 +43,7 @@ body{
     border: 0;
     box-shadow: 1px 1px 10px black;
   }
+
   .register_login{
     font-size: 14px !important;
     font-style: italic;
@@ -73,13 +74,54 @@ body{
 }
 .contacts{
   a{
-    color:red !important;
+    color:red ;
   }
 }
 .page-wrapper{
     min-height: 1000px;
 }
-.content_rec{
-    width: 21%;
-float: left;
+@media (min-width: 768px){
+.col-sm-3 {
+    width: 24%;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border: 3px solid #a00000;
+margin: 4px;
+box-shadow: 1px 1px 6px black
+}
+}
+.logo_header{
+      width: 50px !important;
+}
+.btn{
+  font-weight: 600;
+  padding: 10px;
+    border: 1px solid red;
+    margin: 5px;
+      color: white !important;
+      border: 0 !important;
+    box-shadow: 1px 1px 4px black;
+}
+.direccion_btn,
+.modificar_btn{
+  background: red;
+}
+.bajausuario_btn{
+  background: red;
+      width: 208px;
+}
+.content_rec:hover{
+  background: #a00000;
+  color: white;
+  transition:all 1s ease;
+  .direccion_btn,
+  .modificar_btn{
+    background: white;
+    color:red !important;
+  }
+  .bajausuario_btn{
+  background: white;
+      color:red !important;
+        width: 208px;
+  }
 }

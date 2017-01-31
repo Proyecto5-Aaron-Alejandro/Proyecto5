@@ -16,7 +16,7 @@
             echo "error de depuración: " . mysqli_connect_error() . PHP_EOL;
             exit;
         }
-        
+
 
         //session_start();
         //$mysqli = new mysqli("localhost", "root", "", "bd_proyecto2");
@@ -25,7 +25,7 @@
         //echo $con;
         //Lanzamos la consulta a la BD
         $result =   mysqli_query($conexion,$con);
-        while ($fila = mysqli_fetch_row($result)) 
+        while ($fila = mysqli_fetch_row($result))
             {
                 $usu_nombre  =   $fila[1];
             }
@@ -37,7 +37,7 @@
             //$sql = "SELECT * FROM `tbl_contactos` WHERE `usuc_id` = 1 ";
 
 
-    
+
         extract($_REQUEST);
 
         $contacto = mysqli_query($conexion, $sql);
@@ -92,13 +92,13 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#">My Contacts</a>
+                <img class="logo_header" src="../img/logo.png" href="#"><a href='#' style="padding-left:10px;">My Contacts</a></img>
             </div>
             <!-- Top Menu Items -->
             <ul class="nav navbar-right top-nav">
 
                 <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> 
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i>
                     <?php echo $usu_nombre; ?> <b class="caret"></b></a>
                     <ul class="dropdown-menu">
                         <li>
@@ -111,10 +111,10 @@
             <div class="collapse navbar-collapse navbar-ex1-collapse">
                 <ul class="nav navbar-nav side-nav">
                     <li class="active">
-                        <a href="#"><i class="fa fa-fw fa-dashboard"></i> Contactos</a>
+                        <a href="#"><i class="fa fa-fw fa-users"></i> Contactos</a>
                     </li>
                     <li>
-                        <a href="insertar.php"><i class="fa fa-fw fa-bar-chart-o"></i> FAQ</a>
+                        <a href="insertar.php"><i class="fa fa-fw fa-user"></i> Añadir Contacto</a>
                     </li>
 
                 </ul>
@@ -134,34 +134,26 @@
                                 while($contactos    =   mysqli_fetch_array($contacto)){
                                     echo "<div class='content_rec col-sm-3'>";
                                         //echo $fila[0]
-                                    echo "<table border>";
-                                            echo "<td>Nombre:".$contactos['con_nombre']."</td>";
-                                        echo "</tr>";
-                                        echo "<tr>";
-                                            echo "<td>Apellido: " .$contactos['con_apellido']. "</td>";
-                                        echo "</tr>";
-                                        echo "<tr>";
-                                            echo "<td>Correo: " .$contactos['con_correo']. "</td>";
-                                        echo "</tr>";
-                                        echo "<tr>";
-                                            echo "<td> Móbil:" .$contactos['con_tlf1']. "</td>";
-                                        echo "</tr>";
-                                        echo "<tr>";
-                                            echo "<td> Teléfono:" .$contactos['con_tlf2']. "</td>";
-                                        echo "</tr>";
-                                        echo "<tr>";
-                                            echo "<td colspan='2'> <a href='mapa.php?con_id=".$contactos['con_id']."' '> DIRECCIÓN </a></td>";
-                                        echo "</tr>";
-                                        echo "<tr>";
-                                            echo "<td colspan='2'> <a href='modificarusuario.php?usu_id=".$contactos['con_id']."' '> MODIFICAR </a></td>";
-                                        echo "</tr>";
+                                            echo "<p class='nombre_tbl'><b>Nombre:</b>".$contactos['con_nombre']."</p>";
+                                        echo "<p class='apellido_tbl'>";
+                                            echo "<b>Apellido:</b> " .$contactos['con_apellido']. "</p>";
+                                        echo "</p>";
+                                        echo "<p class='correo_tbl'>";
+                                            echo "<b>Correo: </b>" .$contactos['con_correo']. "</p>";
+                                        echo "</p>";
+                                        echo "<p class='movil_tbl'>";
+                                            echo " <b>Móbil:</b>" .$contactos['con_tlf1']. "</p>";
+                                        echo "</p>";
+                                        echo "<p class='telf_tbl'>";
+                                            echo "<b>Teléfono:</b>" .$contactos['con_tlf2']. "</p>";
+                                        echo "</p>";
+                                        echo "<div>";
+                                            echo "<a class='direccion_btn btn' href='mapa.php?con_id=".$contactos['con_id']."' '> DIRECCIÓN </a>";
 
-                                        echo "<tr>";
-                                            echo "<td colspan='2'> <a href='bajausuario.proc.php?usu_id=".$contactos['con_id']."' onclick='return destroy();'> DAR DE BAJA </a></td>";
-                                        echo "</tr>";
+                                            echo "<a  class='modificar_btn btn' href='modificarusuario.php?con_id=".$contactos['con_id']."' '> MODIFICAR </a>";
 
+                                            echo "<a  class='bajausuario_btn btn' href='bajacontacto.proc.php?con_id=".$contactos['con_id']."' onclick='return destroy();'> DAR DE BAJA </a></div>";
 
-                                    echo "</table>";
                                     echo "</div>";
 
 
