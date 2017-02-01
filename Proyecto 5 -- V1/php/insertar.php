@@ -66,6 +66,58 @@
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
   	<link rel="stylesheet" type="text/css" href="../css/costum.css">
+    <script>
+    //Funcion para validar  el formulario
+    function validar()
+    {
+      var error ="";
+
+      if(document.getElementById("nombre").value=="")
+      {
+        error+="Error, el nombre no puede estar vacío \n";
+        document.getElementById("nombre").style.borderColor="red";
+      }
+       if(document.getElementById("apellido").value=="")
+      {
+        error+="Error, el apellido no puede estar vacío \n";
+        document.getElementById("apellido").style.borderColor="red";
+      }
+
+      if(document.getElementById("email").value=="")
+      {
+        error+="Error, el email no puede estar vacío \n";
+        document.getElementById("email").style.borderColor="red";
+      }
+
+      if(document.getElementById("telefono1").value=="")
+      {
+        error+="Error, el teléfono no puede estar vacío \n";
+        document.getElementById("telefono1").style.borderColor="red";
+      }
+
+      if(document.getElementById("latitud").value=="")
+      {
+        error+="Error, la latitud no puede estar vacío \n";
+        document.getElementById("latitud").style.borderColor="red";
+      }
+
+      if(document.getElementById("longitud").value=="")
+      {
+        error+="Error, la longitud no puede estar vacío \n";
+        document.getElementById("longitud").style.borderColor="red";
+      }
+      if(error!="")
+      {
+        alert(error);
+        return false;
+      }
+      else{
+        return true;
+      }
+    }
+    //END VALIDAR()
+
+    </script>
 </head>
 
 <body>
@@ -115,15 +167,15 @@
             <div class="container-fluid container-fluid2">
                 <div class="row ">
                     <h2 style="text-align:center;">Añadir Contacto</h2>
-                  <form name="formulario_ins" class="formulario_ins" method="post" action="send_form_email.php">
+                  <form name="formulario_ins" class="formulario_ins" method="post" action="insertar.proc.php" onsubmit="return validar();">
 
-                  <table width="450px">
+                  <table width="420px">
                   <tr>
                    <td valign="top">
                     <label for="first_name">Nombre *</label>
                    </td>
                    <td valign="top">
-                    <input  type="text" name="first_name" maxlength="50" size="30">
+                    <input  type="text" id="nombre" name="nombre" maxlength="15" size="30">
                    </td>
                   </tr>
                   <tr>
@@ -131,7 +183,7 @@
                     <label for="last_name">Apellido *</label>
                    </td>
                    <td valign="top">
-                    <input  type="text" name="last_name" maxlength="50" size="30">
+                    <input  type="text" id="apellido" name="apellido" maxlength="15" size="30">
                    </td>
                   </tr>
                   <tr>
@@ -139,29 +191,64 @@
                     <label for="email">E-mail *</label>
                    </td>
                    <td valign="top">
-                    <input  type="text" name="email" maxlength="80" size="30">
+                    <input  type="text" id="email" name="email" maxlength="50" size="30">
+                   </td>
+                  </tr>
+                  <tr>
+                  <td valign="top">
+                    <label for="telephone">Teléfono 1 *</label>
+                   </td>
+                   <td valign="top">
+                    <input  type="text" id="telefono1" name="telefono1" maxlength="9" size="30">
                    </td>
                   </tr>
                   <tr>
                    <td valign="top">
-                    <label for="telephone">Telefono</label>
+                    <label for="telephone">Teléfono 2</label>
                    </td>
                    <td valign="top">
-                    <input  type="text" name="telephone" maxlength="30" size="30">
+                    <input  type="text" id="telefono2" name="telefono2" maxlength="9" size="30">
                    </td>
                   </tr>
                   <tr>
                    <td valign="top">
-                    <label for="message">Dirección*</label>
+                    <label for="message">Latitud *</label>
 
                    </td>
                    <td valign="top">
-                        <input  type="text" name="direccion" maxlength="30" size="30">
+                        <input  type="text" id="latitud" name="latitud" maxlength="20" size="30">
+                   </td>
+                  </tr>
+                  <tr>
+                  <td valign="top">
+                    <label for="message">Longitud *</label>
+
+                   </td>
+                   <td valign="top">
+                        <input  type="text" id="longitud" name="longitud" maxlength="20" size="30">
+                   </td>
+                  </tr>
+                  <tr>
+                   <td valign="top">
+                    <label for="message">Latitud(2a dirección)</label>
+
+                   </td>
+                   <td valign="top">
+                        <input  type="text" id="latitud1" name="latitud1" maxlength="20" size="30">
+                   </td>
+                  </tr>
+                  <tr>
+                  <td valign="top">
+                    <label for="message">Longitud(2a dirección) *</label>
+
+                   </td>
+                   <td valign="top">
+                        <input  type="text" id="longitud1" name="longitud1" maxlength="20" size="30">
                    </td>
                   </tr>
                   <tr>
                    <td colspan="2" style="text-align:center">
-                    <input type="submit" class="submit" value="Enviar">   <a href="http://www.tufelicidadvacacional.com.ve/email_form.php"></a>
+                    <input type="submit" class="submit" value="Enviar">  
                    </td>
                   </tr>
                   </table>

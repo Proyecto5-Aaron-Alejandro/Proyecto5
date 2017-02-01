@@ -142,17 +142,19 @@
                                             echo "<b>Correo: </b>" .$contactos['con_correo']. "</p>";
                                         echo "</p>";
                                         echo "<p class='movil_tbl'>";
-                                            echo " <b>Móbil:</b>" .$contactos['con_tlf1']. "</p>";
+                                            echo " <b>Teléfono 1:</b>" .$contactos['con_tlf1']. "</p>";
                                         echo "</p>";
                                         echo "<p class='telf_tbl'>";
-                                            echo "<b>Teléfono:</b>" .$contactos['con_tlf2']. "</p>";
+                                            echo "<b>Teléfono 2:</b>" .$contactos['con_tlf2']. "</p>";
                                         echo "</p>";
                                         echo "<div>";
                                             echo "<a class='direccion_btn btn' href='mapa.php?con_id=".$contactos['con_id']."' '> DIRECCIÓN </a>";
 
-                                            echo "<a  class='modificar_btn btn' href='modificarusuario.php?con_id=".$contactos['con_id']."' '> MODIFICAR </a>";
+                                            echo "<a  class='modificar_btn btn' href='mapa1.php?con_id=".$contactos['con_id']."' '> DIRECCIÓN </a>";
 
-                                            echo "<a  class='bajausuario_btn btn' href='bajacontacto.proc.php?con_id=".$contactos['con_id']."' onclick='return destroy();'> DAR DE BAJA </a></div>";
+                                            echo "<a  class='bajausuario_btn btn' href='modificarusuario.php?con_id=".$contactos['con_id']."' '> MODIFICAR </a>";
+
+                                            echo "<a  class='bajausuario_btn btn' href='bajacontacto.proc.php?con_id=".$contactos['con_id']."' onclick='return destroy();'> ELIMINAR </a></div>";
 
                                     echo "</div>";
 
@@ -161,7 +163,7 @@
                                 }
 
             } else {
-                echo "No hay recursos disponibles";
+                echo "No hay contactos disponibles";
             }
 
         ?>

@@ -33,7 +33,9 @@
               $latitud=$mapas['con_latitud'];
               $longitud=$mapas['con_longitud'];
             }
-          }
+          }else{
+              echo "No hay contactos disponibles";
+            }
     //echo "$latitud";
     //echo "$longitud";
 
@@ -67,7 +69,7 @@ function initMap() {
   
 
   var map = new google.maps.Map(document.getElementById('map'), {
-    zoom: 16,
+    zoom: 15,
     center: myLatLng
   });
 

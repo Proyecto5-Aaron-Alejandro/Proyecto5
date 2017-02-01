@@ -63,7 +63,7 @@
 				<input type="password" class="pass" name="pass2" id="pass2"/>
 			</p>
 			<p class="register_login">Ya estas registrado? Inicia sesión haciendo <a href="../index.php">click aquí<a></p>
-			<input class="send" id="send" type="submit" value="Acceder" />
+			<input class="send" id="send" type="submit" value="Registrarte">
 		</div>
 	</form>
 </div>
