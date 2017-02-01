@@ -1,0 +1,28 @@
+@import url('https://fonts.googleapis.com/css?family=Amiri:400,400i,700,700i');body{background:#222222}.login_general{margin:100px 440px;text-align:center;background:red;box-shadow:1px 1px 10px black}.login_general .titulo_mc{font-family:'Amiri',serif;font-style:italic;color:#f5deb3;font-size:30px;margin:0}.login_general .login_image{width:100px}.login_general .login_marco{margin:15px 0px 0px;padding:15px;border:1px solid #e5e5e5;background:white;margin-top:0}.login_general .login_marco p{font-family:amiri;font-size:19px}.login_general .login_marco input{font-family:amiri;font-size:16px}.login_general .send{padding:5px 50px;background:red;color:wheat;font-weight:300;border:0;box-shadow:1px 1px 10px black}.login_general .register_login{font-size:14px !important;font-style:italic;color:red}.login_general .register_login a{font-size:14px;font-style:italic;color:red;padding-left:4px}.login_general .register_login a:hover{padding-left:0px;font-weight:bold}.login_general .pass,.login_general .name{float:right;width:200px;margin-right:30px}.login_general .password,.login_general .nickname{text-align:left}.contacts a{color:red }.page-wrapper{min-height:1000px}.page-wrapper .container-fluid2{border:3px solid #b50202;width:440px}@media (min-width:768px){.col-sm-3{width:24%;padding-top:20px;padding-bottom:20px;border:3px solid #a00000;margin:4px;box-shadow:1px 1px 6px #000}}.logo_header{width:50px !important}.btn{font-weight:600;padding:10px;border:1px solid red;margin:5px;color:white !important;border:0 !important;box-shadow:1px 1px 4px black}.direccion_btn,.modificar_btn{background:red}.bajausuario_btn{background:red;width:208px}.content_rec:hover{background:#a00000;color:white;transition:all 1s ease}.content_rec:hover .direccion_btn,.content_rec:hover .modificar_btn{background:white;color:red !important}.content_rec:hover .bajausuario_btn{background:white;color:red !important;width:208px}.formulario_ins{text-align:center}.formulario_ins td,.formulario_ins th{padding:0;padding-bottom:15px;padding-top:15px}.submit{border:3px solid red;padding:10px 38px;background:red;font-size:16px;color:white;border-radius:5px;box-shadow:1px 1px 6px black;font-weight:600}c:hover .modificar_btn {
+  background: white;
+  color: red !important;
+}
+.content_rec:hover .bajausuario_btn {
+  background: white;
+  color: red !important;
+  width: 208px;
+}
+.formulario_ins {
+  text-align: center;
+}
+.formulario_ins td,
+.formulario_ins th {
+  padding: 0;
+  padding-bottom: 15px;
+  padding-top: 15px;
+}
+.submit {
+  border: 3px solid red;
+  padding: 10px 38px;
+  background: red;
+  font-size: 16px;
+  color: white;
+  border-radius: 5px;
+  box-shadow: 1px 1px 6px black;
+  font-weight: 600;
+}
