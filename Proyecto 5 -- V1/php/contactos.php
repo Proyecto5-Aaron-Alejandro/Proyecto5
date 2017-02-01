@@ -152,7 +152,7 @@
 
                                             echo "<a  class='modificar_btn btn' href='mapa1.php?con_id=".$contactos['con_id']."' '> DIRECCIÓN </a>";
 
-                                            echo "<a  class='bajausuario_btn btn' href='modificarusuario.php?con_id=".$contactos['con_id']."' '> MODIFICAR </a>";
+                                            echo "<a  class='bajausuario_btn btn' href='modificarcontacto.php?con_id=".$contactos['con_id']."' '> MODIFICAR </a>";
 
                                             echo "<a  class='bajausuario_btn btn' href='bajacontacto.proc.php?con_id=".$contactos['con_id']."' onclick='return destroy();'> ELIMINAR </a></div>";
 
